@@ -1,22 +1,17 @@
 import express from "express";
-
-import authRoutes from "./routes/auth.routes.js";
-import userRoutes from "./routes/users.routes.js";
-import teamRoutes from "./routes/teams.routes.js";
-import tournamentRoutes from "./routes/tournaments.routes.js";
+import teamsRoutes from "./routes/teams.routes.js";
+import playersRoutes from "./routes/players.routes.js";
+import tournamentsRoutes from "./routes/tournaments.routes.js";
+import matchesRoutes from "./routes/matches.routes.js";
 
 const app = express();
 
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("API OK !");
-});
-
-// Brancher les routes
-app.use("/api/auth", authRoutes);
-app.use("/api/users", userRoutes);
-app.use("/api/teams", teamRoutes);
-app.use("/api/tournaments", tournamentRoutes);
+// Routes
+app.use("/api/teams", teamsRoutes);
+app.use("/api/players", playersRoutes);
+app.use("/api/tournaments", tournamentsRoutes);
+app.use("/api/matches", matchesRoutes);
 
 export default app;
