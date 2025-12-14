@@ -1,17 +1,15 @@
 import express from "express";
-import teamsRoutes from "./routes/teams.routes.js";
-import playersRoutes from "./routes/players.routes.js";
-import tournamentsRoutes from "./routes/tournaments.routes.js";
-import matchesRoutes from "./routes/matches.routes.js";
+import cors from "cors";
+
+import authRoutes from "./routes/auth.routes.js";
 
 const app = express();
 
+// Middlewares
+app.use(cors());
 app.use(express.json());
 
 // Routes
-app.use("/api/teams", teamsRoutes);
-app.use("/api/players", playersRoutes);
-app.use("/api/tournaments", tournamentsRoutes);
-app.use("/api/matches", matchesRoutes);
+app.use("/api/auth", authRoutes);
 
 export default app;
